@@ -14,6 +14,7 @@
             <div class="btn-group">
               <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
             </div>
+          <% end %>
             <div class="btn-group">
               <% if current_user.fav_micropost?(micropost) %>
                 <%= form_with(model: current_user.favorites.find_by(micropost_id: micropost.id), local: true, method: :delete) do |f| %>
@@ -26,7 +27,6 @@
                   <%= f.submit 'Favorite', class: 'btn btn-primary btn-sm' %>
                 <% end %>
               <% end %>
-            <% end %>
           </div>
         </div>
       </div>
